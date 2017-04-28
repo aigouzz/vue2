@@ -6,7 +6,7 @@
     <script src="js/vue.js"></script>
 </head>
 <body>
-<div id="example">
+<div id="example" v-on:click="changeMsg">
     {{message}}
 </div>
 </body>
@@ -15,6 +15,15 @@
         el:'#example',
         data:{
             message:'first impression'
+        },
+        methods:{
+            changeMsg: function () {
+                if(this.message == 'changed msg!'){
+                    this.message = 'first impression!';
+                }else{
+                    this.message = 'changed msg!';
+                }
+            }
         }
     });
 </script>
