@@ -22,3 +22,7 @@ select{
 li{
     list-style: none;
 }
+button{
+    width: 30px;
+    height: 40px;
+}

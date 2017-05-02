@@ -13,6 +13,11 @@
 <div class="index-1" id="example1">
     <component></component>
 </div>
+<div class="index-1" id="example2">
+    <p>{{total}}</p>
+    <increment-counter v-on:increment="incrementTotal"></increment-counter>
+    <increment-counter v-on:increment="incrementTotal"></increment-counter>
+</div>
 </body>
 <script>
     var child = {
@@ -41,6 +46,29 @@
     });
     var app2 = new Vue({
         el:'#example1'
+    });
+    var app3 = Vue.component('increment-counter',{
+        template:'<button v-on:click="increment">{{counter}}</button>',
+        data: function () {
+            return {counter:0}
+        },
+        methods:{
+            increment: function () {
+                this.counter +=1;
+                this.$emit('increment');
+            }
+        }
+    });
+    var app4 = new Vue({
+        el:'#example2',
+        data:{
+            total:0
+        },
+        methods:{
+            incrementTotal: function () {
+                this.total += 1;
+            }
+        }
     });
 </script>
 </html>
