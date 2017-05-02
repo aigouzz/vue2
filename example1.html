@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>vue的组件</title>
+    <script src="js/vue.js"></script>
+    <link rel="stylesheet" href="css/index.css">
+</head>
+<body>
+<div class="index-1" id="example">
+    <my-component></my-component>
+</div>
+<div class="index-1" id="example1">
+    <component></component>
+</div>
+</body>
+<script>
+    var child = {
+        template:'<div>这是一个自定义组件</div>'
+    };
+    var app = new Vue({
+        el:'#example',
+        components:{
+            'my-component':child
+        },
+        methods:{
+            changeMsg: function () {
+                if(this.message == 'changed msg!'){
+                    this.message = 'first impression!';
+                }else{
+                    this.message = 'changed msg!';
+                }
+            }
+        }
+    });
+    var app1 = Vue.component('component',{
+        template:'<div>{{goodPoint}}</div>',
+        data: function () {
+            return {goodPoint:'this is a template'};
+        }//data必须是一个函数
+    });
+    var app2 = new Vue({
+        el:'#example1'
+    });
+</script>
+</html>
