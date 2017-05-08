@@ -18,10 +18,19 @@
     <increment-counter v-on:increment="incrementTotal"></increment-counter>
     <increment-counter v-on:increment="incrementTotal"></increment-counter>
 </div>
+<div class="index-1" id="example3">
+    <div>{{allIncrement}}</div>
+    <input type="text" value="11" >
+</div>
 </body>
 <script>
     var child = {
-        template:'<div>这是一个自定义组件</div>'
+        template:'<div v-on:click="changeMsg">{{message}}</div>',
+        data: function () {
+            return {
+                message:'yes ,it is ok!'
+            };
+        }
     };
     var app = new Vue({
         el:'#example',
@@ -71,13 +80,16 @@
         }
     });
     var app5 = new Vue({
-        el:'#',
+        el:'#example3',
         data:{
             allIncrement:0
         },
         methods:{
-            getter: function () {
+            get: function () {
                 return this.allIncrement;
+            },
+            set: function (value) {
+                this.allIncrement = value;
             }
         }
     });
