@@ -20,7 +20,8 @@
 </div>
 <div class="index-1" id="example3">
     <div>{{allIncrement}}</div>
-    <input type="text" value="11" >
+    <input type="text" v-model="allIncrement" >
+    <div v-on:click="getData">点击清零</div>
 </div>
 </body>
 <script>
@@ -30,12 +31,6 @@
             return {
                 message:'yes ,it is ok!'
             };
-        }
-    };
-    var app = new Vue({
-        el:'#example',
-        components:{
-            'my-component':child
         },
         methods:{
             changeMsg: function () {
@@ -45,6 +40,12 @@
                     this.message = 'changed msg!';
                 }
             }
+        }
+    };
+    var app = new Vue({
+        el:'#example',
+        components:{
+            'my-component':child
         }
     });
     var app1 = Vue.component('component',{
@@ -59,7 +60,9 @@
     var app3 = Vue.component('increment-counter',{
         template:'<button v-on:click="increment">{{counter}}</button>',
         data: function () {
-            return {counter:0}
+            return {
+                counter:0
+            }
         },
         methods:{
             increment: function () {
@@ -85,13 +88,14 @@
             allIncrement:0
         },
         methods:{
-            get: function () {
-                return this.allIncrement;
+            getData: function () {
+                this.allIncrement = Math.floor(this.allIncrement) + 10 ;
             },
-            set: function (value) {
-                this.allIncrement = value;
+            setData: function () {
+                this.allIncrement = 0;
             }
         }
     });
+
 </script>
 </html>
