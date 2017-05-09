@@ -21,7 +21,12 @@
 <div class="index-1" id="example3">
     <div>{{allIncrement}}</div>
     <input type="text" v-model="allIncrement" >
-    <div v-on:click="getData">点击清零</div>
+    <div v-on:click="getData">点击加10</div>
+    <div v-on:click="setData">点击清零</div>
+</div>
+<div class="index-1" id="example4">
+    <div v-on:click="getname">点击获取</div>
+    <div v-bind:my-message="msg"></div>
 </div>
 </body>
 <script>
