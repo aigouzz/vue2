@@ -27,6 +27,9 @@
 <div class="index-1" id="example4">
     <input type="text" v-model="parentMsg">
     <child :my-message="parentMsg"></child>
+    <input type="text" v-model="firstname">
+    <input type="text" v-model="lastname">
+    <div>{{fullname}}</div>
 </div>
 </body>
 <script>
@@ -108,7 +111,21 @@
     var app7 = new Vue({
         el:'#example4',
         data:{
-            parentMsg:'it is a example to show how we use props!'
+            parentMsg:'it is a example to show how we use props!',
+            firstname:'dave',
+            lastname:'smith'
+        },
+        computed:{
+            fullname:{
+                get: function () {
+                    return this.firstname + ' ' + this.lastname;
+                },
+                set: function (newvalue) {
+                    var ar = newvalue.split(' ');
+                    this.firstname = ar[0];
+                    this.lastname = ar[1];
+                }
+            }
         }
     });
 
