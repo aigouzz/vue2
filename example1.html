@@ -25,8 +25,8 @@
     <div v-on:click="setData">点击清零</div>
 </div>
 <div class="index-1" id="example4">
-    <div v-on:click="getname">点击获取</div>
-    <div v-bind:my-message="msg"></div>
+    <input type="text" v-model="parentMsg">
+    <child :my-message="parentMsg"></child>
 </div>
 </body>
 <script>
@@ -99,6 +99,16 @@
             setData: function () {
                 this.allIncrement = 0;
             }
+        }
+    });
+    var app6 = Vue.component('child',{
+        template:'<div>{{myMessage}}</div>',
+        props:['my-message']
+    });
+    var app7 = new Vue({
+        el:'#example4',
+        data:{
+            parentMsg:'it is a example to show how we use props!'
         }
     });
 
