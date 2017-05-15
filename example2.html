@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>vue的组件</title>
+    <script src="js/vue.js"></script>
+    <link rel="stylesheet" href="css/index.css">
+</head>
+<body>
+<div class="index-1" id="example">
+    <div class="name">{{name}}</div>
+    <component actualname="name"></component>
+</div>
+</body>
+<script>
+    var vue1 = new Vue({
+        el:'#example',
+        data:{
+            name:'gg',
+            age:'12'
+        }
+    });
+</script>
+</html>
