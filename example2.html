@@ -11,6 +11,9 @@
     <div class="name">{{name}}</div>
     <component actualname="name"></component>
 </div>
+<div class="index-1" id="example1">
+
+</div>
 </body>
 <script>
     var vue1 = new Vue({
@@ -18,6 +21,12 @@
         data:{
             name:'gg',
             age:'12'
+        }
+    });
+    var vue2 = new Vue({
+        el:'#example1',
+        data:{
+
         }
     });
 </script>
